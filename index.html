@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200px, initial-scale=1.0">
+    <title>Minecraft Mod Converter</title>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@latest/dist/jszip.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mainComponents" id="dropZone">
+        <div class="leftSide">
+            <div class="titleComponents">
+                <h1 id="header">
+                    Mod Version ↴
+                    <span class="subline">ꜛ Conversion</span>
+                </h1>
+            </div>
+            <div class="modLoader">
+                <label for="modLoaderSelection">Mod Loader</label>
+                <select id="modLoaderSelection">
+                    <option value="fabric">Fabric</option>
+                    <option value="forge">Forge</option>
+                    <option value="neoforge">NeoForge</option>
+                    <option value="quilt">Quilt</option>
+                    <option value="babric">Babric</option>
+                    <option value="bta">BTA (Babric)</option>
+                    <option value="legacyfabric">Legacy Fabric</option>
+                    <option value=""></option>
+                </select>
+            </div>
+
+            <div class="version">
+                <label for="versionSelection">Game Version</label>
+                <select id="versionSelection"></select>
+            </div>
+            
+            <button id="convertButton">Convert</button>
+            <button id="downloadButton">Download</button>
+        </div>
+
+        <div class="middle">
+            <div id="modContainer">
+                
+            </div>
+        </div>
+
+        <div class="rightSide">
+            <div class="creatorsTab">
+                <label>Creators</label>
+                <div id="creators">
+
+                </div>
+            </div>
+            <div class="linksTab">
+                <label>Links</label>
+                <div id="links">
+
+                </div>
+            </div>
+            <div class="detailsTab">
+                <label>Details</label>
+                <div id="details">
+
+                </div>
+            </div>
+            <p id="temperaryDropInfo">drop your .jar(s) anywhere <3</p>
+        </div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
