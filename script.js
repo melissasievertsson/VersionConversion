@@ -45,8 +45,6 @@ class Converter {
 	async getHash(file) {
 		const sha1 = await this.hashFile(file, "SHA-1");
 		const sha512 = await this.hashFile(file, "SHA-512");
-		console.log("SHA1:", sha1);
-		console.log("SHA512:", sha512);
 
 		const res = await fetch(`https://api.modrinth.com/v2/version_file/${sha1}?algorithm=sha1`);
 		if (!res.ok) console.error("Not found:", res.status, await res.text());
