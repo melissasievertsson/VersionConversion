@@ -251,10 +251,8 @@ class Converter {
 			);
 
 			if (!valid_versions[0]) {
-				console.log(
-					`Couldn't find a valid version for ${info.title} ${modLoaderSelection.value} ${versionSelection.value}\nFeature to alert the user of this will roll out in a future update ;)`
-				);
-
+				createError(`${info.title} for ${modLoaderSelection.value} ${versionSelection.value} not found.`);
+				
 				let index = files.indexOf(file);
 				if (index !== -1) files.splice(index, 1);
 				continue;
@@ -386,3 +384,44 @@ fetch("https://launchermeta.mojang.com/mc/game/version_manifest.json")
 				versionSelection.appendChild(option);
 			});
 	});
+
+// jesus christ
+const errorContainer = document.createElement("div");
+errorContainer.style.position = "fixed";
+errorContainer.style.bottom = "1rem";
+errorContainer.style.left = "50%";
+errorContainer.style.transform = "translateX(-50%)";
+errorContainer.style.display = "flex";
+errorContainer.style.flexDirection = "column-reverse";
+errorContainer.style.gap = "0.5rem";
+document.body.appendChild(errorContainer);
+
+function createError(message) {
+	if (errorContainer.children.length >= 5) {
+		errorContainer.removeChild(errorContainer.firstElementChild);
+	}
+
+	const box = document.createElement("div");
+	box.className = "errorBox";
+
+	const text = document.createElement("span");
+	text.className = "errorText";
+	text.textContent = message;
+
+	const close = document.createElement("button");
+	close.className = "errorCloseBtn";
+	close.setAttribute("aria-label", "Dismiss error");
+	close.innerHTML = "&times;";
+
+	const dismiss = () => {
+		box.remove();
+	};
+
+	close.addEventListener("click", dismiss);
+
+	box.appendChild(text);
+	box.appendChild(close);
+	errorContainer.appendChild(box);
+
+	return box;
+}

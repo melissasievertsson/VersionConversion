@@ -226,6 +226,43 @@ h1 {
 	right: 2rem;
 }
 
+.errorBox {
+	position: relative;
+	min-width: 18.75rem;
+	max-width: 28rem;
+	padding: 0.75rem 0.875rem;
+	background-color: rgba(144, 0, 0, 0.60);
+	border: 1px solid #900;
+	border-radius: 0.625rem;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+.errorText {
+	color: #fff;
+	font-size: clamp(0.85rem, 1.4vw, 1rem);
+}
+
+.errorCloseBtn {
+	background: transparent;
+	border: none;
+	color: #fff;
+	width: 1.75rem;
+	height: 1.75rem;
+	border-radius: 9999px;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.errorCloseBtn:hover {
+	background-color: rgba(255, 255, 255, 0.08);
+}
+
 .creatorsTab,
 .linksTab,
 .detailsTab {
