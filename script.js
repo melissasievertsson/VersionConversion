@@ -322,8 +322,9 @@ function dropHandler(event) {
 
 	for (const file of event.dataTransfer.files) {
 		const isJar = file.type === "application/java-archive" || file.name.toLowerCase().endsWith(".jar");
+		const isPack = file.name.toLowerCase().endsWith(".mrpack");
 
-		if (!isJar) continue;
+		if (!isJar && !isPack) continue;
 
 		files.push({ file });
 	}
