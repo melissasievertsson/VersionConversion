@@ -246,13 +246,13 @@ class Converter {
 
 			let valid_versions = info.versionInfo.filter(
 				(v) =>
-					v.loaders[0].toLowerCase() === modLoaderSelection.value &&
+					(`${modLoaderSelection.value}` == "None" || v.loaders[0].toLowerCase() === modLoaderSelection.value) &&
 					v.game_versions.includes(versionSelection.value)
 			);
 
 			if (!valid_versions[0]) {
 				createError(`${info.title} for ${modLoaderSelection.value} ${versionSelection.value} not found.`);
-				
+
 				let index = files.indexOf(file);
 				if (index !== -1) files.splice(index, 1);
 				continue;
@@ -322,7 +322,7 @@ function dropHandler(event) {
 
 	for (const file of event.dataTransfer.files) {
 		const isJar = file.type === "application/java-archive" || file.name.toLowerCase().endsWith(".jar");
-		const isPack = file.name.toLowerCase().endsWith(".mrpack");
+		const isPack = file.name.toLowerCase().endsWith(".mrpack") || file.name.toLowerCase().endsWith(".zip");
 
 		if (!isJar && !isPack) continue;
 
