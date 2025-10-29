@@ -17,7 +17,7 @@ No more searching through multiple Modrinth pages just to find nothing, just dro
 - If a mod doesn’t exist for your chosen version/loader, the tool can’t invent it.  
 
 ## Usage
-1. Open the [Version Conversion webpage](https://melissasievertsson.github.io/VersionConversion).  
+1. Open the [Version Conversion webpage](https://theklared.github.io/VersionConversion).  
 2. Drop in your mods you wish to convert. (you can drop mods with no valid versions too, meaning you can drop your entire mods folder!)
 3. Pick your target Minecraft version and mod loader.  
 4. Download and drop it into your mods folder.
